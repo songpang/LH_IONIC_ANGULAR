@@ -1,11 +1,23 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
+// var db = require("mysql");
+
+// const con = db.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "YOUR DB PASSWORD!"
+// });
+
+con.connect(err => {
+  if (err) throw err;
+  console.log("connection!");
+});
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: "app-tab2",
+  templateUrl: "tab2.page.html",
+  styleUrls: ["tab2.page.scss"]
 })
 export class Tab2Page {
   @ViewChild("lineCanvas") lineCanvas: ElementRef;
@@ -20,11 +32,18 @@ export class Tab2Page {
   }
 
   ngOnInit() {
-
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",
       data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July"
+        ],
         datasets: [
           {
             label: "Kyle's weight change",
@@ -56,8 +75,8 @@ export class Tab2Page {
   sanitize(videoUrl) {
     return this.dom.bypassSecurityTrustResourceUrl(videoUrl);
   }
-  
+
   dataCompare() {
-    console.log('hello im' + this.lineChart.data.datasets);
+    console.log("hello im" + this.lineChart.data.datasets);
   }
 }
