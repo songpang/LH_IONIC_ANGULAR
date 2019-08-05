@@ -9,10 +9,10 @@ import { DomSanitizer } from "@angular/platform-browser";
 //   password: "YOUR DB PASSWORD!"
 // });
 
-con.connect(err => {
-  if (err) throw err;
-  console.log("connection!");
-});
+// con.connect(err => {
+//   if (err) throw err;
+//   console.log("connection!");
+// });
 
 @Component({
   selector: "app-tab2",
