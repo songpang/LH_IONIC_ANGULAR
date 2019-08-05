@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
-// import {NavController} from 'ionic-angular';
-// import { Tab3Page } from '../tab3/tab3.page';
 
 @Component({
   selector: "app-tab2",
