@@ -30,3 +30,7 @@ import { MatListModule } from "@angular/material/list";
   declarations: [Tab2Page, RatingComponent]
 })
 export class Tab2PageModule {}
+
+export interface Comments {
+  description?: string
+}

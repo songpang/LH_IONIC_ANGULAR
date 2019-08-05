@@ -1,21 +1,23 @@
+import { Comments } from './tab2.module';
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
-<<<<<<< HEAD
-// var db = require("mysql");
 
-// const con = db.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "YOUR DB PASSWORD!"
-// });
+// <<<<<<< HEAD
+// // var db = require("mysql");
 
-// con.connect(err => {
-//   if (err) throw err;
-//   console.log("connection!");
-// });
-=======
->>>>>>> master
+// // const con = db.createConnection({
+// //   host: "localhost",
+// //   user: "root",
+// //   password: "YOUR DB PASSWORD!"
+// // });
+
+// // con.connect(err => {
+// //   if (err) throw err;
+// //   console.log("connection!");
+// // });
+// //=======
+// >>>>>>> master
 
 @Component({
   selector: "app-tab2",
@@ -28,6 +30,7 @@ export class Tab2Page {
   private lineChart: Chart;
   private activeChart: Chart;
 
+  private comment_text;
   test = 1;
   videoId = "https://www.youtube.com/embed/TlQ8txalLYg";
 
@@ -43,6 +46,8 @@ export class Tab2Page {
   // movePage() {
   //   this.navCtrl.push(Tab3Page);
   // }
+
+  comments: Comments[] = [];
 
   charDataset_weight = {
     fisrt: {
@@ -164,5 +169,15 @@ export class Tab2Page {
 
   updataConfigAboutMonth(monthValue) {
 
+  }
+
+  addDescription(inputText: string) {
+    if(inputText !== "") {
+      this.comments.push({
+        description: inputText
+      })
+    } else {
+      alert('Comments is Blank!')
+    }
   }
 }
