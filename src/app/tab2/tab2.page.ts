@@ -1,4 +1,4 @@
-import { Comments } from './tab2.module';
+import { Comments, Months, Methods } from './tab2.module';
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -30,7 +30,6 @@ export class Tab2Page {
   private lineChart: Chart;
   private activeChart: Chart;
 
-  private comment_text;
   test = 1;
   videoId = "https://www.youtube.com/embed/TlQ8txalLYg";
 
@@ -49,6 +48,33 @@ export class Tab2Page {
 
   comments: Comments[] = [];
 
+
+  months: Months[] = [
+    {
+      mon: '3_month'
+    },
+    {
+      mon: '6_month'
+    },
+    {
+      mon: '9_month'
+    },
+    {
+      mon: '12_month'
+    }
+  ]
+
+  methods: Methods[] = [
+      {
+        met: "Weight"
+      },
+      {
+        met: "PT"
+      },
+      {
+        met: "table select"
+      }
+  ]
   charDataset_weight = {
     fisrt: {
       type: "line",
@@ -161,10 +187,10 @@ export class Tab2Page {
 
   updateConfigByMutating() {
     // this.lineChart.options.title.text = "new title";
-    // this.lineChart.update();
-    // alert("hello");
-  this.lineChart.data.datasets[0].data[2] = 30;
-
+    
+    alert("hello");
+    this.lineChart.data.datasets[0].data[2] = 30;
+    this.lineChart.update();
   }
 
   updataConfigAboutMonth(monthValue) {
@@ -180,4 +206,5 @@ export class Tab2Page {
       alert('Comments is Blank!')
     }
   }
+
 }

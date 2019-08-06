@@ -25,7 +25,29 @@
 
       <ion-card-content>
         <canvas #lineCanvas></canvas>
-        <ion-button (click)="changeData()">
+
+        <hr>
+        <!-- <mat-form-field> -->
+        <mat-label>How long?</mat-label>
+        <section class="example-section">
+            <label class="example-margin">Color:</label>
+            <mat-radio-group >
+              <mat-radio-button class="example-margin" value="primary">
+                Primary
+              </mat-radio-button>
+              <mat-radio-button class="example-margin" value="accent">
+                Accent
+              </mat-radio-button>
+              <mat-radio-button class="example-margin" value="warn">
+                Warn
+              </mat-radio-button>
+            </mat-radio-group>
+          </section>
+
+          
+        <!-- </mat-form-field> -->
+        
+        <!-- <ion-button (click)="changeData()">
           Hello
         </ion-button>
         <ion-button (click)="updateConfigByMutating()">
@@ -36,7 +58,7 @@
         </ion-button>
         <ion-button >
           12 Month
-        </ion-button>
+        </ion-button> -->
       </ion-card-content>
 
       <ion-card-content class="cardBadge">

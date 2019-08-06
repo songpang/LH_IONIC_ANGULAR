@@ -17,7 +17,9 @@ import {
   MatCardModule,
   MatIconModule
 } from "@angular/material";
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,9 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatRadioModule
   ],
   providers: [
     StatusBar,
