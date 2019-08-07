@@ -45,18 +45,22 @@
           <mat-button-toggle-group #group="matButtonToggleGroup" class='mat-group'>
             <mat-button-toggle value="left" aria-label="Text align left" selected
             [disabled]="threeMonth" (change)="clickThreeMon()">
-              <mat-icon>format_align_left</mat-icon>
+              <mat-label>6 Month</mat-label>
             </mat-button-toggle>
             <mat-button-toggle value="center" aria-label="Text align center"
             (change)="clickSixMon()" [disabled]="sixMonth">
-              <mat-icon>format_align_center</mat-icon>
+              <mat-label>9 Month</mat-label>
             </mat-button-toggle>
             <mat-button-toggle value="right" aria-label="Text align right"
             (change)="clickTwelveMon()" [disabled]="tweleveMonth">
-              <mat-icon>format_align_right</mat-icon>
+              <mat-label>12 Month</mat-label>
             </mat-button-toggle>
             <mat-button-toggle value="justify" disabled aria-label="Text align justify">
-              <mat-icon>format_align_justify</mat-icon>
+              <mat-label>1 Year</mat-label>
+            </mat-button-toggle>
+
+            <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+              <mat-label>2 Year</mat-label>
             </mat-button-toggle>
           </mat-button-toggle-group>
           <div class="example-selected-value">Selected value: {{group.value}}</div>

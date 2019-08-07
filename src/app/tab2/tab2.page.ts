@@ -55,7 +55,7 @@ export class Tab2Page {
     this.tweleveMonth = false;
 
     this.measureChange = true;
-    
+
     console.log('start!');
     this.dataFinder.getJSONData('../../assets/data/loadChart.json').then(data => {
       // console.log(data);
