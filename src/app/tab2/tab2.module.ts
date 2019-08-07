@@ -12,15 +12,12 @@ import {
 } from "@angular/material";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
-<<<<<<< HEAD
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-=======
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
->>>>>>> master
+
 
 @NgModule({
   imports: [
@@ -32,14 +29,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule,
     MatListModule,
     MatIconModule,
-<<<<<<< HEAD
+
     MatSelectModule,
     MatSlideToggleModule,
     MatRadioModule,
-=======
-    MatRadioModule,
-    MatSlideToggleModule,
->>>>>>> master
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
   declarations: [Tab2Page, RatingComponent]

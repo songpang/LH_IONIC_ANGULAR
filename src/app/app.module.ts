@@ -20,16 +20,14 @@ import {
   MatCardModule,
   MatIconModule
 } from "@angular/material";
-<<<<<<< HEAD
+
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-=======
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
->>>>>>> master
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,15 +38,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-<<<<<<< HEAD
     MatSelectModule,
     MatSlideToggleModule,
-    MatRadioModule
-=======
     MatRadioModule,
-    MatSlideToggleModule,
     HttpModule
->>>>>>> master
+
   ],
   providers: [
     StatusBar,
