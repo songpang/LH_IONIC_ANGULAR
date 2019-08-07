@@ -1,3 +1,6 @@
+import { JsonLoadFinder } from './tab2/JsonLoadFinder';
+
+import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -19,6 +22,9 @@ import {
 } from "@angular/material";
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,13 +34,15 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatButtonToggleModule,
-
+    MatRadioModule,
+    MatSlideToggleModule,
+    HttpModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    JsonLoadFinder
   ],
   bootstrap: [AppComponent]
 })

@@ -44,3 +44,6 @@ $app-theme: mat-light-theme($app-primary, $app-accent);
 
 // Include the mixin
 @include mix-app-theme($app-theme);
+.selectMonth {
+  text-align: center;
+}
