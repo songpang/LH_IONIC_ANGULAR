@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-button hape="round" expand="full" (click)="dataCompare()">
+  <ion-button hape="round" expand="full">
     <ion-icon name="star"></ion-icon>
   </ion-button>
   <div>
@@ -25,6 +25,7 @@
 
       <ion-card-content>
         <canvas #lineCanvas></canvas>
+<<<<<<< HEAD
 
         <hr>
         <!-- <mat-form-field> -->
@@ -52,13 +53,37 @@
         </ion-button>
         <ion-button (click)="updateConfigByMutating()">
           ADD
+=======
+        <ion-button (click)="changeData()">
+          another data
+>>>>>>> master
         </ion-button>
+<<<<<<< HEAD
+        
         <ion-button >
           6 Month
+=======
+        <ion-button (click)="viewpastData()">
+          period change
         </ion-button>
+<<<<<<< HEAD
         <ion-button >
           12 Month
         </ion-button> -->
+=======
+        <ion-button (click)="dataConverse()">
+          Conversion of measure
+>>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
+        </ion-button>
+        <ion-button (click) = "viewfutureData()">
+          func test Btn
+        </ion-button>
+
+        
+          <mat-slide-toggle (click)="dataConverse()">
+            Change!
+          </mat-slide-toggle>
+>>>>>>> master
       </ion-card-content>
 
       <ion-card-content class="cardBadge">
