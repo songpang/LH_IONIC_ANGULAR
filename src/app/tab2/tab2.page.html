@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-button hape="round" expand="full" (click)="dataCompare()">
+  <ion-button hape="round" expand="full">
     <ion-icon name="star"></ion-icon>
   </ion-button>
   <div>
@@ -26,14 +26,22 @@
       <ion-card-content>
         <canvas #lineCanvas></canvas>
         <ion-button (click)="changeData()">
-          Hello
+          another data
         </ion-button>
+<<<<<<< HEAD
         
         <ion-button >
           6 Month
+=======
+        <ion-button (click)="viewpastData()">
+          period change
         </ion-button>
-        <ion-button >
-          12 Month
+        <ion-button (click)="dataConverse()">
+          Conversion of measure
+>>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
+        </ion-button>
+        <ion-button (click) = "viewfutureData()">
+          func test Btn
         </ion-button>
 
         
