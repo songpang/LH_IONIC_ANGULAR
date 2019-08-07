@@ -32,7 +32,7 @@
         <ion-button >
           6 Month
         </ion-button>
-        <ion-button (click) = "viewfutureData()">
+        <ion-button (click) = "viewpastData()">
           func test Btn
         </ion-button>
 
@@ -102,10 +102,10 @@
 
       <mat-list>
         <h3 mat-subheader>Folders</h3>
-        <mat-list-item *ngFor="let folder of folders">
+        <mat-list-item *ngFor="let comment of comments">
           <mat-icon mat-list-icon>folder</mat-icon>
-          <h4 mat-line>{{ folder.name }}</h4>
-          <p mat-line>{{ folder.updated | date }}</p>
+          <!-- <h4 mat-line>{{ comment.description }}</h4> -->
+          <p mat-line>{{ comment.description}}</p>
         </mat-list-item>
         <mat-divider></mat-divider>
         <h3 mat-subheader>Notes</h3>
@@ -118,10 +118,10 @@
 
       <mat-form-field hideRequiredMarker appearance="outline" class="mat-form">
         <mat-label>Comments</mat-label>
-        <input matInput />
+        <input matInput #inputComments/>
         <mat-hint>Input Your Comments</mat-hint>
       </mat-form-field>
-      <button mat-button>Action</button>
+      <button mat-button (click)="addDescription(inputComments.value)">Action</button>
     </ion-card>
   </div>
 </ion-content>

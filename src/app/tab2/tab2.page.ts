@@ -1,4 +1,8 @@
+
+import { Comments, Months, Methods } from './tab2.module';
+
 import { JsonLoadFinder } from './JsonLoadFinder';
+
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -17,21 +21,20 @@ export class Tab2Page {
   private chartcount: number;
   private measureChange: boolean;
   private periodofMonth: number;
+  private sixMonth = false;
+  private threeMonth = false;
+  private tweleveMonth = false;
 
-  OnInit() {
-    
-    
-  }
   test = 1;
-  videoId = "https://www.youtube.com/embed/TlQ8txalLYg";
+  videoId = 'https://www.youtube.com/embed/TlQ8txalLYg';
 
-<<<<<<< HEAD
   constructor(
     // public navCtrl:NavController,
     private dom: DomSanitizer,
     private dataFinder: JsonLoadFinder
   ) {
     this.measureChange = true;
+    this.periodofMonth = 6;
     console.log('start!');
     this.dataFinder.getJSONData('../../assets/data/loadChart.json').then(data => {
       // console.log(data);
@@ -43,179 +46,82 @@ export class Tab2Page {
 
       this.lineChart = this.activeChart;
     });
-    // setInterval(() => {
-    //   this.test++;
-    // }, 1000)
-=======
-  constructor(private dom: DomSanitizer) {
+  }
+
+  clickThreeMon() {
+    console.log('click!');
+    this.threeMonth = true;
+    this.sixMonth = false;
+    this.tweleveMonth = false;
+
     this.measureChange = true;
-    this.periodofMonth = 6;
-    this.chartcount = 0;
->>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
-  }
 
-  charDataset_weight = {
-    first: {
-      type: "line",
-      data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
-        ],
-        datasets: [
-          {
-            label: "Kyle's weight change ( Kg )",
-            fill: false,
-            lineTension: 0.2,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: "butt",
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: "miter",
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 3,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 3,
-            pointHitRadius: 10,
-            data: [85, 81, 80, 81, 79, 73, 71, 70, 71, 70, 69, 70],
-            spanGaps: false
-          },
-          {
-            label: "My weight change",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(115, 18, 18, 0.4)",
-            borderColor: "rgba(115, 18, 18,1)",
-            borderCapStyle: "butt",
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: "miter",
-            pointBorderColor: "rgba(115, 18, 18,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(115, 18, 18,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 3,
-            pointHitRadius: 10,
-            data: [90, 88, 89, 91, 91, 90, 92],
-            spanGaps: false
-          }
-        ]
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                callback: value => {
-                  return value + "kg";
-                }
-              }
-            }
-          ]
-        }
-      }
-    },
-    second: {
-      type: "line",
-      data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July"
-        ],
-        datasets: [
-          {
-            label: "Kyle's muscle change",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: "butt",
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: "miter",
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 5,
-            pointHitRadius: 10,
-            data: [35, 35, 32, 32, 33, 35, 36],
-            spanGaps: false
-          }
-        ]
-      }
-    }
-  };
-
-  ngOnInit() {
-<<<<<<< HEAD
-    // this.activeChart = new Chart(
-    //   this.lineCanvas.nativeElement,
-    //   this.charDataset_weight.fisrt
-    // );
-    // this.lineChart = this.activeChart;
-=======
-    this.lineChart = new Chart(
-      this.lineCanvas.nativeElement,
-      this.charDataset_weight.first
-    );
->>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
-  }
-
-  sanitize(videoUrl) {
-    return this.dom.bypassSecurityTrustResourceUrl(videoUrl);
-  }
-
-  changeData() {
-    if (this.chartcount == 0) {
-      this.lineChart = new Chart(
+    console.log('start!');
+    this.dataFinder.getJSONData('../../assets/data/loadChart.json').then(data => {
+      // console.log(data);
+      console.log(data[0]);
+      this.activeChart = new Chart(
         this.lineCanvas.nativeElement,
-        this.charDataset_weight.second
+        data[0].fisrt
       );
-      this.lineChart.update();
-      this.chartcount++;
-    } else {
-      this.lineChart = new Chart(
-        this.lineCanvas.nativeElement,
-        this.charDataset_weight.first
-      );
-      this.lineChart.update();
-      this.chartcount--;
-    }
+
+      this.lineChart = this.activeChart;
+    });
+  }
+
+  clickSixMon() {
+    console.log('click!');
+    this.threeMonth = false;
+    this.sixMonth = true;
+
+    const past3month = [
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December/18'
+    ];
+    const weightData = [80, 84, 82, 83, 90, 92];
+    let __lineChartData = this.lineChart;
+    this.unshiftData(3, __lineChartData.data, past3month, weightData);
+        __lineChartData.update();
+        
+  }
+
+  clickTwelveMon() {
+    console.log('click!');
+    this.threeMonth = false;
+    this.sixMonth = false;
+    this.tweleveMonth = true;
+
+    const past3month = [
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December/18'
+    ];
+    const weightData = [80, 84, 82, 83, 90, 92];
+    let __lineChartData = this.lineChart;
+
+    this.unshiftData(3, __lineChartData.data, past3month, weightData);
+    __lineChartData.update();
+    
   }
 
   viewpastData() {
-    let past3month = [
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December/18"
+    const past3month = [
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December/18'
     ];
 
-    let weightData = [80, 84, 82, 83, 90, 92];
+    const weightData = [80, 84, 82, 83, 90, 92];
     let __lineChartData = this.lineChart;
 
     switch (this.periodofMonth) {
@@ -240,11 +146,19 @@ export class Tab2Page {
     }
   }
 
+
+  // updateConfigByMutating() {
+    // this.lineChart.options.title.text = "new title";
+    
+    // alert("hello");
+    // this.lineChart.data.datasets[0].data[2] = 30;
+    // this.lineChart.update();
+
   unshiftData(count: number, chartData, dataList, targetData) {
     for (let i = count - 1; i >= 0; i--) {
       chartData.labels.unshift(dataList[i]);
     }
-<<<<<<< HEAD
+
     this.lineChart.data.datasets.forEach(dataset => {
       dataset.data.unshift(80);
       dataset.data.unshift(83);
@@ -254,8 +168,7 @@ export class Tab2Page {
       dataset.data.unshift(86);
     });
     this.lineChart.update();
-=======
->>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
+
 
     chartData.datasets.forEach(dataset => {
       // console.log(dataset.data)
