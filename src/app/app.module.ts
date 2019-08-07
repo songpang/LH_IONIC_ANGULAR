@@ -20,8 +20,11 @@ import {
   MatCardModule,
   MatIconModule
 } from "@angular/material";
-import {MatRadioModule} from '@angular/material/radio';
+
+import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -34,9 +37,12 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatRadioModule,
+    MatSelectModule,
     MatSlideToggleModule,
-    HttpModule
+    MatRadioModule,
+    HttpModule,
+    MatButtonToggleModule
+
   ],
   providers: [
     StatusBar,

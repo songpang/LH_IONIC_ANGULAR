@@ -25,22 +25,15 @@
 
       <ion-card-content>
         <canvas #lineCanvas></canvas>
-        <ion-button (click)="changeData()">
-          another data
-        </ion-button>
-<<<<<<< HEAD
+
+
+        <hr>
         
-        <ion-button >
-          6 Month
-=======
-        <ion-button (click)="viewpastData()">
-          period change
-        </ion-button>
         <ion-button (click)="dataConverse()">
           Conversion of measure
->>>>>>> f60da4444acfca78edeb314408d3bf7f18c71e36
+
         </ion-button>
-        <ion-button (click) = "viewfutureData()">
+        <ion-button (click) = "viewpastData()">
           func test Btn
         </ion-button>
 
@@ -48,6 +41,29 @@
           <mat-slide-toggle (click)="dataConverse()">
             Change!
           </mat-slide-toggle>
+
+          <mat-button-toggle-group #group="matButtonToggleGroup" class='mat-group'>
+            <mat-button-toggle value="left" aria-label="Text align left" selected
+            [disabled]="threeMonth" (change)="clickThreeMon()">
+              <mat-label>6 Month</mat-label>
+            </mat-button-toggle>
+            <mat-button-toggle value="center" aria-label="Text align center"
+            (change)="clickSixMon()" [disabled]="sixMonth">
+              <mat-label>9 Month</mat-label>
+            </mat-button-toggle>
+            <mat-button-toggle value="right" aria-label="Text align right"
+            (change)="clickTwelveMon()" [disabled]="tweleveMonth">
+              <mat-label>12 Month</mat-label>
+            </mat-button-toggle>
+            <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+              <mat-label>1 Year</mat-label>
+            </mat-button-toggle>
+
+            <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+              <mat-label>2 Year</mat-label>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          <div class="example-selected-value">Selected value: {{group.value}}</div>
       </ion-card-content>
 
       <ion-card-content class="cardBadge">
@@ -107,10 +123,10 @@
 
       <mat-list>
         <h3 mat-subheader>Folders</h3>
-        <mat-list-item *ngFor="let folder of folders">
+        <mat-list-item *ngFor="let comment of comments">
           <mat-icon mat-list-icon>folder</mat-icon>
-          <h4 mat-line>{{ folder.name }}</h4>
-          <p mat-line>{{ folder.updated | date }}</p>
+          <!-- <h4 mat-line>{{ comment.description }}</h4> -->
+          <p mat-line>{{ comment.description}}</p>
         </mat-list-item>
         <mat-divider></mat-divider>
         <h3 mat-subheader>Notes</h3>
@@ -123,10 +139,10 @@
 
       <mat-form-field hideRequiredMarker appearance="outline" class="mat-form">
         <mat-label>Comments</mat-label>
-        <input matInput />
+        <input matInput #inputComments/>
         <mat-hint>Input Your Comments</mat-hint>
       </mat-form-field>
-      <button mat-button>Action</button>
+      <button mat-button (click)="addDescription(inputComments.value)">Action</button>
     </ion-card>
   </div>
 </ion-content>
