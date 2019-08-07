@@ -1,3 +1,4 @@
+import { JsonLoadFinder } from './JsonLoadFinder';
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
@@ -14,14 +15,30 @@ export class Tab2Page {
   private activeChart: Chart;
   private measureChange: boolean;
 
+  OnInit() {
+    
+    
+  }
   test = 1;
   videoId = "https://www.youtube.com/embed/TlQ8txalLYg";
 
   constructor(
     // public navCtrl:NavController,
-    private dom: DomSanitizer
+    private dom: DomSanitizer,
+    private dataFinder: JsonLoadFinder
   ) {
     this.measureChange = true;
+    console.log('start!');
+    this.dataFinder.getJSONData('../../assets/data/loadChart.json').then(data => {
+      // console.log(data);
+      console.log(data[0]);
+      this.activeChart = new Chart(
+        this.lineCanvas.nativeElement,
+        data[0].fisrt
+      );
+
+      this.lineChart = this.activeChart;
+    });
     // setInterval(() => {
     //   this.test++;
     // }, 1000)
@@ -133,11 +150,11 @@ export class Tab2Page {
   };
 
   ngOnInit() {
-    this.activeChart = new Chart(
-      this.lineCanvas.nativeElement,
-      this.charDataset_weight.fisrt
-    );
-    this.lineChart = this.activeChart;
+    // this.activeChart = new Chart(
+    //   this.lineCanvas.nativeElement,
+    //   this.charDataset_weight.fisrt
+    // );
+    // this.lineChart = this.activeChart;
   }
 
   sanitize(videoUrl) {
@@ -178,7 +195,6 @@ export class Tab2Page {
       dataset.data.unshift(89);
       dataset.data.unshift(87);
       dataset.data.unshift(86);
-      
     });
     this.lineChart.update();
 
