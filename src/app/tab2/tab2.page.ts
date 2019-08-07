@@ -237,8 +237,8 @@ export class Tab2Page {
       this.lineChart.options.scales.yAxes = [
         {
           ticks: {
-            callback: (value) => {
-              return value + ' lb';
+            callback: value => {
+              return value + " lb";
             }
           }
         }
@@ -261,8 +261,8 @@ export class Tab2Page {
       this.lineChart.options.scales.yAxes = [
         {
           ticks: {
-            callback: (value) => {
-              return value + ' kg';
+            callback: value => {
+              return value + " kg";
             }
           }
         }
@@ -277,5 +277,47 @@ export class Tab2Page {
   viewfutureData() {
     this.lineChart.data.labels.push("progress");
     this.lineChart.update();
+  }
+
+  testFunc() {
+    alert("heelo");
+  }
+
+  viewpastData2(month) {
+    let past3month = [
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December/18"
+    ];
+
+    let weightData = [80, 84, 82, 83, 90, 92];
+    let __lineChartData = this.lineChart;
+    let gapMonth = this.periodofMonth - month;
+
+    switch (month) {
+      case 6:
+          __lineChartData.data.labels.splice(0, 6);
+          __lineChartData.data.datasets[0].data.splice(0, 6);
+          __lineChartData.data.datasets[1].data.splice(0, 6);
+          __lineChartData.update();
+          console.log(__lineChartData.data.datasets[0].data);
+        break;
+      case 9:
+          this.unshiftData(3, __lineChartData.data, past3month, weightData);
+          __lineChartData.update();
+          break;
+      case 12:
+          this.unshiftData(6, __lineChartData.data, past3month, weightData);
+          __lineChartData.update();
+          break;
+      case 24:
+          this.unshiftData(12, __lineChartData.data, past3month, weightData);
+          __lineChartData.update();
+          break;
+    }
+
   }
 }

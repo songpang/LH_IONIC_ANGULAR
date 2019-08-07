@@ -17,7 +17,7 @@ import {
   MatCardModule,
   MatIconModule
 } from "@angular/material";
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +28,8 @@ import {
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatButtonToggleModule,
+
   ],
   providers: [
     StatusBar,
