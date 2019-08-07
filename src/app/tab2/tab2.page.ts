@@ -21,6 +21,9 @@ export class Tab2Page {
   private chartcount: number;
   private measureChange: boolean;
   private periodofMonth: number;
+  private sixMonth = false;
+  private threeMonth = false;
+  private tweleveMonth = false;
 
   test = 1;
   videoId = 'https://www.youtube.com/embed/TlQ8txalLYg';
@@ -45,6 +48,68 @@ export class Tab2Page {
     });
   }
 
+  clickThreeMon() {
+    console.log('click!');
+    this.threeMonth = true;
+    this.sixMonth = false;
+    this.tweleveMonth = false;
+
+    this.measureChange = true;
+    
+    console.log('start!');
+    this.dataFinder.getJSONData('../../assets/data/loadChart.json').then(data => {
+      // console.log(data);
+      console.log(data[0]);
+      this.activeChart = new Chart(
+        this.lineCanvas.nativeElement,
+        data[0].fisrt
+      );
+
+      this.lineChart = this.activeChart;
+    });
+  }
+
+  clickSixMon() {
+    console.log('click!');
+    this.threeMonth = false;
+    this.sixMonth = true;
+
+    const past3month = [
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December/18'
+    ];
+    const weightData = [80, 84, 82, 83, 90, 92];
+    let __lineChartData = this.lineChart;
+    this.unshiftData(3, __lineChartData.data, past3month, weightData);
+        __lineChartData.update();
+        
+  }
+
+  clickTwelveMon() {
+    console.log('click!');
+    this.threeMonth = false;
+    this.sixMonth = false;
+    this.tweleveMonth = true;
+
+    const past3month = [
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December/18'
+    ];
+    const weightData = [80, 84, 82, 83, 90, 92];
+    let __lineChartData = this.lineChart;
+
+    this.unshiftData(3, __lineChartData.data, past3month, weightData);
+    __lineChartData.update();
+    
+  }
 
   viewpastData() {
     const past3month = [

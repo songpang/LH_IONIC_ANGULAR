@@ -24,8 +24,7 @@ import {
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -41,7 +40,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSelectModule,
     MatSlideToggleModule,
     MatRadioModule,
-    HttpModule
+    HttpModule,
+    MatButtonToggleModule
 
   ],
   providers: [

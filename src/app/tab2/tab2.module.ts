@@ -16,7 +16,7 @@ import { MatListModule } from "@angular/material/list";
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatListModule,
     MatIconModule,
 
+    MatButtonToggleModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatRadioModule,

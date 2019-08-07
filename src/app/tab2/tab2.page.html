@@ -28,49 +28,7 @@
 
 
         <hr>
-        <!-- <mat-form-field> -->
-        <mat-label>How long?</mat-label>
-        <section class="example-section">
-            <label class="example-margin">Color:</label>
-            <mat-radio-group >
-              <mat-radio-button class="example-margin" value="primary">
-                Primary
-              </mat-radio-button>
-              <mat-radio-button class="example-margin" value="accent">
-                Accent
-              </mat-radio-button>
-              <mat-radio-button class="example-margin" value="warn">
-                Warn
-              </mat-radio-button>
-            </mat-radio-group>
-          </section>
-
-          
-        <!-- </mat-form-field> -->
         
-        <!-- <ion-button (click)="changeData()">
-          Hello
-        </ion-button>
-        <ion-button (click)="updateConfigByMutating()">
-          ADD
-=======
-        <ion-button (click)="changeData()">
-          another data
->>>>>>> master
-        </ion-button>
-<<<<<<< HEAD
-        
-        <ion-button >
-          6 Month
-=======
-        <ion-button (click)="viewpastData()">
-          period change
-        </ion-button>
-<<<<<<< HEAD
-        <ion-button >
-          12 Month
-        </ion-button> -->
-
         <ion-button (click)="dataConverse()">
           Conversion of measure
 
@@ -84,6 +42,24 @@
             Change!
           </mat-slide-toggle>
 
+          <mat-button-toggle-group #group="matButtonToggleGroup" class='mat-group'>
+            <mat-button-toggle value="left" aria-label="Text align left" selected
+            [disabled]="threeMonth" (change)="clickThreeMon()">
+              <mat-icon>format_align_left</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="center" aria-label="Text align center"
+            (change)="clickSixMon()" [disabled]="sixMonth">
+              <mat-icon>format_align_center</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="right" aria-label="Text align right"
+            (change)="clickTwelveMon()" [disabled]="tweleveMonth">
+              <mat-icon>format_align_right</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+              <mat-icon>format_align_justify</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+          <div class="example-selected-value">Selected value: {{group.value}}</div>
       </ion-card-content>
 
       <ion-card-content class="cardBadge">
