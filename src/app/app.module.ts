@@ -25,7 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatSlideToggleModule,
     MatRadioModule,
     HttpModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatMenuModule
 
   ],
   providers: [

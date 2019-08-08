@@ -7,6 +7,7 @@ import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { Chart } from "chart.js";
 import { DomSanitizer } from "@angular/platform-browser";
 
+
 @Component({
   selector: "app-tab2",
   templateUrl: "tab2.page.html",
@@ -14,6 +15,9 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class Tab2Page {
   @ViewChild("lineCanvas") lineCanvas: ElementRef;
+
+
+  howLongMonth = '6 Month';
 
   private lineChart: Chart;
   private activeChart: Chart;
@@ -49,10 +53,10 @@ export class Tab2Page {
   }
 
   clickThreeMon() {
+
+    this.howLongMonth = '6 Month';
     console.log('click!');
-    this.threeMonth = true;
-    this.sixMonth = false;
-    this.tweleveMonth = false;
+    
 
     this.measureChange = true;
 
@@ -70,10 +74,12 @@ export class Tab2Page {
   }
 
   clickSixMon() {
-    console.log('click!');
-    this.threeMonth = false;
-    this.sixMonth = true;
 
+    this.howLongMonth = '9 Month';
+    console.log('click!');
+    
+
+    
     const past3month = [
       'July',
       'August',
@@ -90,10 +96,10 @@ export class Tab2Page {
   }
 
   clickTwelveMon() {
+
+    this.howLongMonth = '1 Year';
     console.log('click!');
-    this.threeMonth = false;
-    this.sixMonth = false;
-    this.tweleveMonth = true;
+    
 
     const past3month = [
       'July',

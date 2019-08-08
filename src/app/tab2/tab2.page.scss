@@ -22,6 +22,14 @@ ion-avatar {
   text-align: center;
 }
 
+.mat-raised-button {
+  width: 100%
+}
+
+.example-button-row {
+  text-align: center;
+}
+
 @import '~@angular/material/theming';
 
 @include mat-core();
